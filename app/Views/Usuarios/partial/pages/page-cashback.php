@@ -12,26 +12,21 @@
                         Cadastre seu cupon e receba seu desconto sem sorteio.
                     </p>
                 </div>
-                <div class="ms-auto my-auto mt-lg-0 mt-4">
-                    <div class="ms-auto my-auto">
-                        <button type="button" id="modalCachbackAdd" class="cls_ler_qrcode btn bg-gradient-primary btn-sm mb-0" data-bs-toggle="modal" data-bs-target="#modal-default_add_cupon">
-                            +&nbsp;Cadastrar Bônus
-                        </button>
-                    </div>
-                </div>
             </div>
 
             <div class="nav-wrapper position-relative end-0">
                 <ul class="nav nav-pills nav-fill p-1" id="myTab" role="tablist">
 
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                        <a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="#home" role="tab"
+                            aria-controls="home" aria-selected="true">
                             <i class="ni ni-cart text-sm me-2"></i> Ativos
                         </a>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                        <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#profile" role="tab"
+                            aria-controls="profile" aria-selected="false">
                             <i class="ni ni-fat-remove text-sm me-2"></i> Histórico
                         </a>
                     </li>
@@ -48,10 +43,18 @@
                             <table class="table align-items-center mb-0" id="table_list_cupons" style="width: 100%;">
                                 <thead>
                                     <tr>
-                                        <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">VENCIMENTO</th>
-                                        <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">STATUS</th>
-                                        <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">RESGATE</th>
-                                        <th class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">OPÇÕES</th>
+                                        <th
+                                            class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            VENCIMENTO</th>
+                                        <th
+                                            class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                            STATUS</th>
+                                        <th
+                                            class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            RESGATE</th>
+                                        <th
+                                            class="text-left text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
+                                            OPÇÕES</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -74,22 +77,32 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
 
     </div>
+
 </div>
+
+
+<!-- popap de senha do caixa -->
+
+<div class="fixed-plugin ps">
+    <a href="#" class="fixed-plugin-button text-dark position-fixed px-3 py-2" data-bs-toggle="modal"
+        data-bs-target="#modal-form_caixa">
+        <i class="fa fa-lock py-2" aria-hidden="true"> </i>
+    </a>
+</div>
+
 <?= $this->include('Usuarios/partial/popap/popap-shopping-cashback'); ?>
 <?= $this->include('Usuarios/partial/popap/popap-gerar-qrcode'); ?>
 <?= $this->endSection() ?>
 <?= $this->section('scripts'); ?>
-<script src="<?= base_url() ?>/public/templates/template-admin/js/plugins/html5-qrcode.min.js"></script>
-<script src="<?= base_url() ?>/public/templates/template-admin/js/plugins/classyqr.min.js"></script>
+<script src="<?= base_url() ?>/templates/template-admin/js/plugins/html5-qrcode.min.js"></script>
+<script src="<?= base_url() ?>/templates/template-admin/js/plugins/classyqr.min.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
 
-        $("#clickViewOpenReadQrCode").click(function() {
+        $("#clickViewOpenReadQrCode").click(function () {
             $('#modal-notification').modal('show');
 
             function docReady(fn) {
@@ -103,7 +116,7 @@
                 }
             }
 
-            docReady(function() {
+            docReady(function () {
                 var resultContainer = document.getElementById('qr-reader-results');
                 var lastResult, countResults = 0;
                 let result = document.getElementById("resultados").value = null;
@@ -118,17 +131,17 @@
 
                         //let html = document.getElementById("resultados").innerHTML;
                         let resultados_scanner = document.getElementById("resultados").value = decodedText;
-                        let cnpj_verify =  resultados_scanner.slice(61, 75);
+                        let cnpj_verify = resultados_scanner.slice(61, 75);
                         document.getElementById("cnpj_vededor").value = cnpj_verify;
                         document.getElementById('valor_chave').value = resultados_scanner.slice(56, 99);
-                        
-                        if(cnpj_verify != '11114552000147'){
+
+                        if (cnpj_verify != '11114552000147') {
                             Swal.fire({
-                              position: 'top-end',
-                              icon: 'error',
-                              title: 'A leitura do cupom não é permitido.',
-                              showConfirmButton: false,
-                              timer: 3500
+                                position: 'top-end',
+                                icon: 'error',
+                                title: 'A leitura do cupom não é permitido.',
+                                showConfirmButton: false,
+                                timer: 3500
                             });
                             return false;
                         }
@@ -174,9 +187,9 @@
 
                 var html5QrcodeScanner = new Html5QrcodeScanner(
                     "qr-reader", {
-                        fps: 10,
-                        qrbox: 250
-                    });
+                    fps: 10,
+                    qrbox: 250
+                });
                 html5QrcodeScanner.render(onScanSuccess);
 
 
@@ -188,7 +201,7 @@
 </script>
 
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#valor_comprado').mask("#.##0,00", {
             reverse: true
         });
@@ -201,29 +214,29 @@
             serverSide: true,
             ajax: "<?= site_url('user/lista_cupons_ativos') ?>",
             columns: [{
-                    data: 'cup_data_vencimento_cupom'
-                },
-                {
-                    data: 'cup_status'
-                },
-                {
-                    data: 'progress'
-                },
-                {
-                    data: 'action',
-                    orderable: false
-                },
+                data: 'cup_data_vencimento_cupom'
+            },
+            {
+                data: 'cup_status'
+            },
+            {
+                data: 'progress'
+            },
+            {
+                data: 'action',
+                orderable: false
+            },
             ],
             columnDefs: [{
                 targets: 0,
                 orderable: false
-            }, ]
+            },]
         });
         /**salva cachback*/
         let preload_btn = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>Salvabdo, aguarde...';
         let btn_default = 'Salvar';
 
-        $('#addCupomFiscal').submit(function(e) {
+        $('#addCupomFiscal').submit(function (e) {
             e.preventDefault();
             var form = this;
             $.ajax({
@@ -233,16 +246,16 @@
                 processData: false,
                 dataType: 'json',
                 contentType: false,
-                beforeSend: function() {
+                beforeSend: function () {
                     $(form).find('span.error-text').text('');
                     $('.cls_btn_lvt').html(preload_btn);
                     $('.cls_btn_lvt').attr('disabled', 'disabled');
                 },
-                complete: function() {
+                complete: function () {
                     $('#id_btn_lvt').html(btn_default);
                     $('.cls_btn_lvt').attr('disabled', false);
                 },
-                success: function(data) {
+                success: function (data) {
                     if ($.isEmptyObject(data.error)) {
                         if (data.code == 1) {
                             $(form)[0].reset();
@@ -267,7 +280,7 @@
                             'error'
                         );
 
-                        $.each(data.error, function(prefix, val) {
+                        $.each(data.error, function (prefix, val) {
                             $(form).find('span.' + prefix + '_error').text(val);
                         });
                     }
@@ -275,7 +288,7 @@
             });
         });
 
-        $(document).on('click', '.gerarQrCode', function() {
+        $(document).on('click', '.gerarQrCode', function () {
             var id = $(this).attr('id');
             $.ajax({
                 url: "<?= site_url('user/qrcode_build'); ?>",
@@ -284,7 +297,7 @@
                     id: id
                 },
                 dataType: 'JSON',
-                success: function(data) {
+                success: function (data) {
                     let cod_id = data['cup_id'];
                     let cod_key = data['cup_key_cupom'];
                     let cod_user = data['cup_usuario_id'];
@@ -292,8 +305,8 @@
                     $('#modal-notification_qrcode_ready').modal('show');
                     $('#hidden_cupom_id').val(id);
                     $("#qr1").ClassyQR({
-                        type: 'url',
-                        url: "<?= site_url('user/acesso-troca/') ?>" + cod_key + '/' + cod_user + '/' + cod_id
+                        type: 'text',
+                        text: + cod_id
                     });
                 }
             });

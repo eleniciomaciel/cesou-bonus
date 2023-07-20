@@ -19,11 +19,11 @@ class SenhaCaixaController extends BaseController
         $model_senha_caixa = model(SenhaCaixaModel::class);
         $validation = \Config\Services::validation();
         $this->validate([
-             'resultados'=>[
-                 'rules'=>'required|is_unique[cupom.cup_qrcode_cupom]',
+             'senha_caixa'=>[
+                 'rules'=>'required|validaSenhaCaixa[senha_caixa]',
                  'errors'=>[
-                     'required'=>'É necessário ler o qrcode do cupom.',
-                     'is_unique'=>'Ops! Esse QR CODE já foi cadastrado.',
+                     'required'=>'É necessário informar uma senha.',
+                     'validaSenhaCaixa'=>'Ops! Senha incorreta.',
                  ]
              ],
              
@@ -34,12 +34,9 @@ class SenhaCaixaController extends BaseController
             echo json_encode(['code'=>0, 'error'=>$errors]);
         }else{
              //Insert data into db
-             $data = [
-                 'cup_qrcode_cupom'             =>  $this->request->getPost('resultados')
-             ];
-             $query = $model_senha_caixa->insert($data);
+             $query = $model_senha_caixa->where('senha_caixa', $this->request->getPost('senha_caixa')); 
              if($query){
-                 echo json_encode(['code'=>1,'msg'=>'Cupom cadastrado com sucesso.']);
+                 echo json_encode(['code'=>1,'msg'=>'Senha confirmada com sucesso.']);
              }else{
                  echo json_encode(['code'=>0,'msg'=>'Existem alguns erros, verifique por favor']);
              }

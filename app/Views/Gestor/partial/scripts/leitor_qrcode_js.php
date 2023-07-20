@@ -1,7 +1,7 @@
 <script>
     $(document).ready(function() {
-        
-                $('#valor_venda').mask("#.##0,00", {
+
+        $('#valor_venda').mask("#.##0,00", {
             reverse: true
         });
 
@@ -16,7 +16,7 @@
                 $("#valor_compesado").val(porcentagem);
             }
         });
-        
+
         $(".cls_ler_qrcode").click(function() {
             $('#modal-notification').modal('show');
 
@@ -35,6 +35,7 @@
                 var resultContainer = document.getElementById('qr-reader-results');
                 var lastResult, countResults = 0;
 
+
                 function onScanSuccess(decodedText, decodedResult) {
                     if (decodedText !== lastResult) {
                         $('#modal-notification').modal('hide');
@@ -47,18 +48,15 @@
                         let leitura = decodedText;
 
                         if (leitura) {
+
                             let key_sefax = decodedText.slice(40, 83);
-                            let usuario_id = decodedText.slice(84, 85);
                             let id_cupon = decodedText.slice(87, 89);
 
-                           
-
                             $.ajax({
-                                url: "<?php echo site_url('gestor/ler-qrcode/'); ?>" + id_cupon,
+                                url: "<?php echo site_url('gestor/ler-qrcode/'); ?>" + leitura,
                                 method: "GET",
                                 data: {
                                     key_sefax: key_sefax,
-                                    usuario_id: usuario_id,
                                     id_cupon: id_cupon,
                                 },
                                 dataType: 'JSON',
@@ -71,7 +69,7 @@
                                     $('#usercup_status').val(data.cup_status);
                                     $('#modal-default_dados_Clientes').modal('show');
                                     html5QrcodeScanner.clear();
-                                    $('#hidden_id_cupon').val(id_cupon);
+                                    $('#hidden_id_cupon').val(data.cup_id);
                                     $('#hidden_id_sefaz').val(key_sefax);
                                 },
                                 error: function(data) {
@@ -95,6 +93,16 @@
             });
         });
 
+
+        $('#table_clientes_loja').DataTable({
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Portuguese-Brasil.json"
+            },
+            processing: true,
+            serverSide: true,
+            order: [], //this mean no init order on datatable
+            ajax: "<?= site_url('gestor/lista-clientes-loja') ?>",
+        });
 
         //adiciona troca de de cupom qrcode
         let preload_btn_cls = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Salvabdo, aguarde...';
@@ -122,8 +130,8 @@
                 success: function(data) {
                     if ($.isEmptyObject(data.error)) {
                         if (data.code == 1) {
-                            //$(form)[0].reset();
-                            //$('#table_list_cupons').DataTable().ajax.reload(null, false);
+                            $(form)[0].reset();
+                            $('#table_clientes_loja').DataTable().ajax.reload(null, false);
                             Swal.fire(
                                 'Ok!',
                                 data.msg,
@@ -154,4 +162,26 @@
             })
         });
     });
+</script>
+<script>
+  
+function myFunction() {
+
+    let total_compra = document.getElementById('valor_venda').value;
+    let desconto = document.getElementById('valor_desconto').value;
+
+    let valor_convertido = realToDolar(total_compra);
+    let total_desconto = desconto / 100 * valor_convertido;
+
+    var result = parseFloat(total_desconto).toFixed(2)
+    var dinheiro = result.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+
+    document.getElementById("resultado").innerHTML = dinheiro;
+}
+
+function realToDolar(num){
+    num = num.replace('.', '');
+    num = num.replace(',', '.');
+    return num
+}
 </script>

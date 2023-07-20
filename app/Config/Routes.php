@@ -174,6 +174,7 @@ $routes->group("user", ["filter" => "auth"], function ($routes) {
     /**
      * dados do card
      */
+    $routes->get("listaPontos", "CupomUsuarioController::getTotalPontos");
     $routes->get("listaTotalCupons", "CupomUsuarioController::getTotalCubonsAtivivo");
     $routes->get("listaCuponsConpensados", "CupomUsuarioController::getCubonsCompensados");
     $routes->get("listaCuponRestantes", "CupomUsuarioController::getParaTrocas");
@@ -186,7 +187,7 @@ $routes->group("user", ["filter" => "auth"], function ($routes) {
     /**
      * SENHA DO CAIXA
      */
-    $routes->match(['get', 'post'], 'senha-caixa', 'GestorController::atualizaPerfilGestir');
+    $routes->match(['get', 'post'], 'senha-caixa', 'SenhaCaixaController::index');
 
 });
 

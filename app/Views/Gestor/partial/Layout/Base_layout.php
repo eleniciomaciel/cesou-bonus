@@ -17,13 +17,13 @@
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
     <!-- Nucleo Icons -->
-    <link href="<?= base_url() ?>/public/templates/template-admin/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="<?= base_url() ?>/public/templates/template-admin/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="<?= base_url() ?>/templates/template-admin/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="<?= base_url() ?>/templates/template-admin/css/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="<?= base_url() ?>/public/templates/template-admin/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="<?= base_url() ?>/templates/template-admin/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link id="pagestyle" href="<?= base_url() ?>/public/templates/template-admin/css/soft-ui-dashboard.css?v=1.0.6" rel="stylesheet" />
+    <link id="pagestyle" href="<?= base_url() ?>/templates/template-admin/css/soft-ui-dashboard.css?v=1.0.6" rel="stylesheet" />
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -70,14 +70,14 @@
     </div>
     <?= $this->include('Gestor/partial/popap/popap-perfil') ?>
     <!--   Core JS Files   -->
-    <script src="<?= base_url() ?>/public/templates/template-admin/js/jquery.min.js"></script>
-    <script src="<?= base_url() ?>/public/templates/template-admin/js/core/popper.min.js"></script>
-    <script src="<?= base_url() ?>/public/templates/template-admin/js/core/bootstrap.min.js"></script>
-    <script src="<?= base_url() ?>/public/templates/template-admin/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="<?= base_url() ?>/public/templates/template-admin/js/plugins/smooth-scrollbar.min.js"></script>
-    <script src="<?= base_url() ?>/public/templates/template-admin/js/plugins/chartjs.min.js"></script>
-    <script src="<?= base_url() ?>/public/templates/template-admin/js/sweetalert2.js"></script>
-    <script src="<?= base_url() ?>/public/templates/template-admin/js/jquery.mask.min.js"></script>
+    <script src="<?= base_url() ?>/templates/template-admin/js/jquery.min.js"></script>
+    <script src="<?= base_url() ?>/templates/template-admin/js/core/popper.min.js"></script>
+    <script src="<?= base_url() ?>/templates/template-admin/js/core/bootstrap.min.js"></script>
+    <script src="<?= base_url() ?>/templates/template-admin/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="<?= base_url() ?>/templates/template-admin/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="<?= base_url() ?>/templates/template-admin/js/plugins/chartjs.min.js"></script>
+    <script src="<?= base_url() ?>/templates/template-admin/js/sweetalert2.js"></script>
+    <script src="<?= base_url() ?>/templates/template-admin/js/jquery.mask.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -96,7 +96,7 @@
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="<?= base_url() ?>/public/templates/template-admin/js/soft-ui-dashboard.min.js?v=1.0.6"></script>
+    <script src="<?= base_url() ?>/templates/template-admin/js/soft-ui-dashboard.min.js?v=1.0.6"></script>
     <?= $this->include('Gestor/partial/scripts/perfil-script') ?>
     <?= $this->renderSection('scripts'); ?>
     

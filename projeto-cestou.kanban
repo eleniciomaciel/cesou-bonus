@@ -1,0 +1,127 @@
+{
+  "lists": [
+    {
+      "id": "48bb8475-b49c-4714-a00c-2666651b256f",
+      "title": "Necessidade",
+      "cards": [
+        {
+          "id": "e846473c-5bd0-48e8-90b6-9be83cb9f7c1",
+          "listId": "48bb8475-b49c-4714-a00c-2666651b256f",
+          "title": "ADICIONAR DESCONTO PELO CADASTRO",
+          "description": "",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
+          "id": "01543f8c-665c-46e6-91ee-ab14b18d97ff",
+          "listId": "48bb8475-b49c-4714-a00c-2666651b256f",
+          "title": "CONSTRUIR AS AÇÕES DO CADASTRO DE PESSOA LOJA E LOJA",
+          "description": "",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        }
+      ]
+    },
+    {
+      "id": "1c95b88d-de06-4137-b278-5831df9ccc42",
+      "title": "Fazendo",
+      "cards": []
+    },
+    {
+      "id": "ddf9bdf7-1116-4337-b013-1175fe14336a",
+      "title": "Teste",
+      "cards": []
+    },
+    {
+      "id": "39346c18-917d-418e-9ef6-0018cd172b6a",
+      "title": "Concluído",
+      "cards": [
+        {
+          "id": "f022d6c3-e114-4a6f-8978-f19f73a8fab4",
+          "listId": "39346c18-917d-418e-9ef6-0018cd172b6a",
+          "title": "adicionar validação de sessção em lista cupons",
+          "description": "",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
+          "id": "3e1db41f-38b1-4f28-a408-48026b700906",
+          "listId": "39346c18-917d-418e-9ef6-0018cd172b6a",
+          "title": "Preço do produto com error",
+          "description": "",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
+          "id": "9822b955-b190-4f8f-9bdf-025ef24b4c38",
+          "listId": "39346c18-917d-418e-9ef6-0018cd172b6a",
+          "title": "AJUSTAR PREÇO DO DESCONTO NA LISTAGEM",
+          "description": "",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
+          "id": "5f9f53de-0a8d-4ea4-88f9-d2df14f8c091",
+          "listId": "39346c18-917d-418e-9ef6-0018cd172b6a",
+          "title": "Corrigir falha no cadastro da empresa",
+          "description": "",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
+          "id": "909145c4-75a9-464f-ac09-1ebea8338a69",
+          "listId": "39346c18-917d-418e-9ef6-0018cd172b6a",
+          "title": "trocar id so qrcode",
+          "description": "",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
+          "id": "067f3281-b01d-4797-90c7-89ff85145080",
+          "listId": "39346c18-917d-418e-9ef6-0018cd172b6a",
+          "title": "AJUSTAR O SELECT APÓS SALVAR A TROCA DO CUPOM",
+          "description": "",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        }
+      ]
+    }
+  ],
+  "archive": {
+    "lists": [],
+    "cards": [
+      {
+        "id": "30f5d53e-fb48-494d-a78f-7612a1b28eef",
+        "listId": "48bb8475-b49c-4714-a00c-2666651b256f",
+        "title": "colocar scrhool em potenciais clientes",
+        "description": "",
+        "dueDate": "2023-07-20T17:17:00.000Z",
+        "labels": [],
+        "checkboxes": [
+          {
+            "id": "640fe7af-500e-4139-8964-7c8aaa448366",
+            "title": "PESQUISAR CÓDIGO",
+            "checked": false
+          }
+        ],
+        "comments": [
+          {
+            "id": "2b82ec49-f7dd-46c5-b0d3-9611d8c3414c",
+            "comment": "A LISTAGEM NÃO ESTÁ ATUALIZANDO"
+          }
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "labels": []
+  }
+}

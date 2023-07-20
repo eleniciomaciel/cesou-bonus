@@ -24,10 +24,10 @@
                 <table class="table align-items-center mb-0" id="table_clientes_loja">
                     <thead>
                         <tr>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nome</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Data</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Valor</th>
-                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">CLIENTE</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">VENDA</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">DESCONTO</th>
+                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">DATA</th>
 
                         </tr>
                     </thead>
@@ -42,7 +42,7 @@
 <?= $this->include('Gestor/partial/popap/popap-ler-qrcode') ?>
 <?= $this->endSection() ?>
 <?= $this->section('scripts'); ?>
-<script src="<?= base_url() ?>/public/templates/template-admin/js/plugins/html5-qrcode.min.js"></script>
+<script src="<?= base_url() ?>/templates/template-admin/js/plugins/html5-qrcode.min.js"></script>
 <?= $this->include('Gestor/partial/scripts/leitor_qrcode_js') ?>
 <?= $this->include('Gestor/partial/scripts/lista-clientes_js') ?>
 <?= $this->include('Gestor/partial/scripts/perfil-script') ?>

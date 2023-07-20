@@ -35,7 +35,7 @@ abstract class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = [];
+    protected $helpers = ['convertpontos'];
 
     /**
      * Constructor.
@@ -46,7 +46,7 @@ abstract class BaseController extends Controller
         parent::initController($request, $response, $logger);
 
         // Preload any models, libraries, etc, here.
-
+        date_default_timezone_set('America/Sao_Paulo');
         // E.g.: $this->session = \Config\Services::session();
     }
 }

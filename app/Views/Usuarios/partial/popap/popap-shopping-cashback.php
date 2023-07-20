@@ -54,18 +54,6 @@
                             </div>
                         </div>
 
-
-                        <div class="card-footer pt-0 p-3 d-flex align-items-center">
-                            <div class="w-60">
-                                <p class="text-sm">
-                                    Senha do caixa Cesta do Povo
-                                </p>
-                            </div>
-                            <div class="w-40 text-end">
-                                <button type="button" class="btn bg-gradient-dark mb-0 text-end" href="javascript:;"data-bs-toggle="modal" data-bs-target="#modal-form">Liberar Valor</button>
-                            </div>
-                        </div>
-
                         <div class="col-md-6">
                             DATA DA COMPRA:
                             <div class="form-group">
@@ -129,7 +117,7 @@
 </div>
 
 
-    <div class="modal fade" id="modal-form" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
+    <div class="modal fade" id="modal-form_caixa" tabindex="-1" role="dialog" aria-labelledby="modal-form" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
         <div class="modal-content">
         <div class="modal-header">
@@ -149,9 +137,10 @@
 
                   <label>Senha:</label>
                   <div class="input-group mb-3">
-                    <input type="number" class="form-control" placeholder="Senha do caixa..." aria-label="Password" aria-describedby="password-addon">
+                    <input type="number" class="form-control" name="senha_caixa" id="senha_caixa" placeholder="Senha do caixa..." aria-label="Password" aria-describedby="password-addon">
                     
                   </div>
+                  <span class="text-danger error-text senha_caixa_error"></span>
                   <div class="text-center">
                     <button type="submit" class="class_load_envia_up_senha_caixa btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0" id="id_btn_load_up_senha_caixa">Liberar Valor</button>
                   </div>

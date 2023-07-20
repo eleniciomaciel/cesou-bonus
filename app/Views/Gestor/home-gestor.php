@@ -74,7 +74,7 @@
 <?= $this->endSection() ?>
 <?= $this->section('scripts'); ?>
 <?= $this->include('Gestor/partial/scripts/lista-clientes_js') ?>
-<script src="<?= base_url() ?>/public/templates/template-admin/js/plugins/html5-qrcode.min.js"></script>
+<script src="<?= base_url() ?>/templates/template-admin/js/plugins/html5-qrcode.min.js"></script>
 <script>
     $(document).ready(function() {
 
@@ -85,73 +85,73 @@
             reverse: true
         });
 
-        $(".cls_ler_qrcode").click(function() {
-            $('#modal-notification').modal('show');
+        // $(".cls_ler_qrcode").click(function() {
+        //     $('#modal-notification').modal('show');
 
-            function docReady(fn) {
-                // see if DOM is already available
-                if (document.readyState === "complete" ||
-                    document.readyState === "interactive") {
-                    // call on next available tick
-                    setTimeout(fn, 1);
-                } else {
-                    document.addEventListener("DOMContentLoaded", fn);
-                }
-            }
+        //     function docReady(fn) {
+        //         // see if DOM is already available
+        //         if (document.readyState === "complete" ||
+        //             document.readyState === "interactive") {
+        //             // call on next available tick
+        //             setTimeout(fn, 1);
+        //         } else {
+        //             document.addEventListener("DOMContentLoaded", fn);
+        //         }
+        //     }
 
-            docReady(function() {
-                var resultContainer = document.getElementById('qr-reader-results');
-                var lastResult, countResults = 0;
+        //     docReady(function() {
+        //         var resultContainer = document.getElementById('qr-reader-results');
+        //         var lastResult, countResults = 0;
+                
+        //         function onScanSuccess(decodedText, decodedResult) {
+        //             if (decodedText !== lastResult) {
+        //                 $('#modal-notification').modal('hide');
+        //                 ++countResults;
+        //                 lastResult = decodedText;
+        //                 // Handle on success condition with the decoded message.
+        //                 console.log(`Scan result ${decodedText}`, decodedResult);
 
-                function onScanSuccess(decodedText, decodedResult) {
-                    if (decodedText !== lastResult) {
-                        $('#modal-notification').modal('hide');
-                        ++countResults;
-                        lastResult = decodedText;
-                        // Handle on success condition with the decoded message.
-                        console.log(`Scan result ${decodedText}`, decodedResult);
-
-                        let leitura = decodedText;
-
-                        if (leitura) {
-                            let key_sefax = decodedText.slice(40, 83);
-                            let usuario_id = decodedText.slice(84, 85);
-                            let id_cupon = decodedText.slice(86, 88);
+        //                 let leitura = decodedText;
+                        
+        //                 if (leitura) {
+        //                     let key_sefax = decodedText.slice(40, 83);
+        //                     let usuario_id = decodedText.slice(84, 85);
+        //                     let id_cupon = decodedText.slice(86, 88);
 
 
-                            $.ajax({
-                                url: "<?php echo site_url('gestor/ler-qrcode/'); ?>" + id_cupon,
-                                method: "GET",
-                                data: {
-                                    key_sefax: key_sefax,
-                                    usuario_id: usuario_id,
-                                    id_cupon: id_cupon,
-                                },
-                                dataType: 'JSON',
-                                success: function(data) {
-                                    $('#userusuario').val(data.reg_nome);
-                                    $('#usercpf').val(data.reg_cpf);
-                                    $('#userpontos').val(data.cup_pontos);
-                                    $('#usercup_status').val(data.cup_status);
-                                    $('#modal-default_dados_Clientes').modal('show');
-                                    html5QrcodeScanner.clear();
-                                    $('#hidden_id_cupon').val(id_cupon);
-                                }
-                            });
+        //                     $.ajax({
+        //                         url: "<?php echo site_url('gestor/ler-qrcode/'); ?>" + id_cupon,
+        //                         method: "GET",
+        //                         data: {
+        //                             key_sefax: key_sefax,
+        //                             usuario_id: usuario_id,
+        //                             id_cupon: id_cupon,
+        //                         },
+        //                         dataType: 'JSON',
+        //                         success: function(data) {
+        //                             $('#userusuario').val(data.reg_nome);
+        //                             $('#usercpf').val(data.reg_cpf);
+        //                             $('#userpontos').val(data.cup_pontos);
+        //                             $('#usercup_status').val(data.cup_status);
+        //                             $('#modal-default_dados_Clientes').modal('show');
+        //                             html5QrcodeScanner.clear();
+        //                             $('#hidden_id_cupon').val(id_cupon);
+        //                         }
+        //                     });
 
-                        }
-                    }
-                }
+        //                 }
+        //             }
+        //         }
 
-                var html5QrcodeScanner = new Html5QrcodeScanner(
-                    "qr-reader", {
-                        fps: 10,
-                        qrbox: 250
-                    });
-                html5QrcodeScanner.render(onScanSuccess);
+        //         var html5QrcodeScanner = new Html5QrcodeScanner(
+        //             "qr-reader", {
+        //                 fps: 10,
+        //                 qrbox: 250
+        //             });
+        //         html5QrcodeScanner.render(onScanSuccess);
 
-            });
-        });
+        //     });
+        // });
 
         
 

@@ -5,6 +5,7 @@ namespace App\Validation;
 use App\Models\BradescoModel;
 use App\Models\CupomModel;
 use App\Models\LevaTrazModel;
+use App\Models\SenhaCaixaModel;
 
 class StatusCupomValidation
 {
@@ -20,9 +21,10 @@ class StatusCupomValidation
 
     public function validaCuponValor($str, string $fields, array $data): bool
     {
-        $valor_compra = intval($data['valor_comprado']);
-        $valor_100 = intval(100);
-        if ($valor_compra < $valor_100 ) {
+        $valor_total = (double) str_replace(',', '.', str_replace('.', '', $data['valor_comprado']));
+        $valor_const = "200.00";
+        $valor_100 = (double)$valor_const;
+        if ($valor_total < $valor_100 ) {
             return false;
         }
         return true;
@@ -52,5 +54,16 @@ class StatusCupomValidation
             return false;
         }
         return true;
+    }
+
+    public function validaSenhaCaixa($str, string $fields, array $data): bool
+    {
+        $model = model(SenhaCaixaModel::class);
+        $senha = $data['senha_caixa'];
+        $data_exists = $model->where('senha_caixa', $senha)->first();
+        if ($data_exists) {
+            return true;
+        }
+        return false;
     }
 }

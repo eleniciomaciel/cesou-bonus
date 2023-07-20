@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\CupomModel;
 use App\Models\LojaModel;
+use App\Models\PontosModel;
 use App\Models\RegistroUsuarioModel;
 use \Hermawan\DataTables\DataTable;
 
@@ -71,22 +72,30 @@ class CupomUsuarioController extends BaseController
             echo json_encode(['code'=>0, 'error'=>$errors]);
         }else{
              //Insert data into db
-             $data = [
-                 'cup_qrcode_cupom'             =>  $this->request->getPost('resultados'),
-                 'cup_key_cupom'                =>  $this->request->getPost('valor_chave'),
-                 'cup_data_cupom'               =>  $this->request->getPost('data_compra'),
-                 'cup_valor_cupom'              =>  money_convert($this->request->getPost('valor_comprado')),
-                 'cup_cnpj_cupom'               =>  $this->request->getPost('cnpj_vededor'),
-                 'cup_empresa_vendedora_cupom'  =>  $this->request->getPost('empresa_vendedora'),
-                 'cup_data_vencimento_cupom'    =>  date('Y-m-d', strtotime($this->request->getPost('data_compra').'+ 30 days')),
-                 'cup_usuario_id'               =>  $this->request->getPost('id_usuario_cashback'),
-             ];
-             $query = $model_cupom->insert($data);
-             if($query){
-                 echo json_encode(['code'=>1,'msg'=>'Cupom cadastrado com sucesso.']);
-             }else{
-                 echo json_encode(['code'=>0,'msg'=>'Existem alguns erros, verifique por favor']);
+             $valor_total = (double) str_replace(',', '.', str_replace('.', '', $this->request->getPost('valor_comprado')));
+
+             for ($x = 200; $x <= $valor_total; $x+= 200) {
+     
+                 $data = [
+                     [
+                        'cup_qrcode_cupom'             =>  $this->request->getPost('resultados'),
+                        'cup_key_cupom'                =>  $this->request->getPost('valor_chave'),
+                        'cup_data_cupom'               =>  $this->request->getPost('data_compra'),
+                        'cup_valor_cupom'              =>  money_convert($this->request->getPost('valor_comprado')),
+                        'cup_cnpj_cupom'               =>  $this->request->getPost('cnpj_vededor'),
+                        'cup_empresa_vendedora_cupom'  =>  $this->request->getPost('empresa_vendedora'),
+                        'cup_data_vencimento_cupom'    =>  date('Y-m-d', strtotime($this->request->getPost('data_compra').'+ 30 days')),
+                        'cup_usuario_id'               =>  $this->request->getPost('id_usuario_cashback'),
+                        'cup_pontos'                   =>  intval($this->request->getPost('valor_comprado'))
+                     ],
+                 ];   
+                $query = $model_cupom->insertBatch($data);
              }
+             if($query){
+                echo json_encode(['code'=>1,'msg'=>'Cupom cadastrado com sucesso.']);
+            }else{
+                echo json_encode(['code'=>0,'msg'=>'Existem alguns erros, verifique por favor']);
+            }
         }
     }
 
@@ -182,6 +191,15 @@ class CupomUsuarioController extends BaseController
         echo $row->total_cupons;
     }
 
+    public function getTotalPontos()
+    {
+        $usuarios_id = session()->get('id');
+        $db = \Config\Database::connect();
+        $query = $db->query('SELECT * FROM pontos WHERE point_usuario   = "'.$usuarios_id.'"');
+        $row   = $query->getRow();
+        echo $row->point_pontos;
+    }
+
     public function getCubonsCompensados()
     {
         $usuarios_id = session()->get('id');
@@ -214,7 +232,7 @@ class CupomUsuarioController extends BaseController
         if (isset($query)) {
             foreach ($query->getResult() as $row) {
                 
-                if ($row->cup_status == 'Ativo') {
+                if ($row->cup_status == 'Ativo' AND $row->cup_usuario_id == $id) {
                     $output .= '
                     <div class="timeline-block mb-3">
                         <span class="timeline-step">
@@ -226,7 +244,7 @@ class CupomUsuarioController extends BaseController
                         </div>
                     </div>
                     ';
-                }elseif ($row->cup_status == 'Compensado' && $row->cup_data_vencimento_cupom <= date('Y-m-d')) {
+                }elseif ($row->cup_status == 'Compensado' && $row->cup_data_vencimento_cupom <= date('Y-m-d')  AND $row->cup_usuario_id == $id) {
                     $output .= '
 
 
@@ -241,7 +259,7 @@ class CupomUsuarioController extends BaseController
                 </div>
 
                     ';
-                }elseif ($row->cup_data_vencimento_cupom >= date('Y-m-d')) {
+                }elseif ($row->cup_data_vencimento_cupom >= date('Y-m-d')  AND $row->cup_usuario_id == $id) {
                     $output .= '
                     <div class="timeline-block mb-3">
                         <span class="timeline-step">

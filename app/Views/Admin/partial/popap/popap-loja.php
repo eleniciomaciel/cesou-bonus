@@ -33,7 +33,7 @@
                         <div class="col-md-8">
                             <div class="form-group">
                                 <label for="">Nome empresarial:</label>
-                                <input type="text" placeholder="Ex.: Cesta do povo" name="emp_nome_empresarial" id="emp_nome_empresarial" class="form-control" readonly />
+                                <input type="text" placeholder="Ex.: Cesta do povo" name="emp_nome_empresarial" id="emp_nome_empresarial" class="form-control"  />
                                 <span class="text-danger error-text emp_nome_empresarial_error"></span>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                         <div class="col-md-9">
                             <div class="form-group">
                                 <label for="">Nome Fantasia:</label>
-                                <input type="text" class="form-control" id="emp_nome_fantasia" name="emp_nome_fantasia" placeholder="Ex.: Ceta do Povo" readonly>
+                                <input type="text" class="form-control" id="emp_nome_fantasia" name="emp_nome_fantasia" placeholder="Ex.: Ceta do Povo" >
                                 <span class="text-danger error-text emp_nome_fantasia_error"></span>
                             </div>
                         </div>
@@ -76,7 +76,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="">Abertura:</label>
-                                <input type="date" class="form-control" id="emp_data_abertura" name="emp_data_abertura" readonly>
+                                <input type="date" class="form-control" id="emp_data_abertura" name="emp_data_abertura" >
                                 <span class="text-danger error-text emp_data_abertura_error"></span>
                             </div>
                         </div>
@@ -85,7 +85,7 @@
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label for="">CEP:</label>
-                                <input type="text" class="form-control" id="emp_cep" name="emp_cep" placeholder="Ex.: 18.970-000" readonly>
+                                <input type="text" class="form-control" id="emp_cep" name="emp_cep" placeholder="Ex.: 18.970-000" >
                                 <span class="text-danger error-text emp_cep_error"></span>
                             </div>
                         </div>
@@ -93,7 +93,7 @@
                         <div class="col-md-2">
                             <div class="form-group">
                                 <label for="">UF:</label>
-                                <input type="text" class="form-control" id="emp_uf" name="emp_uf" placeholder="Ex.: BA" readonly>
+                                <input type="text" class="form-control" id="emp_uf" name="emp_uf" placeholder="Ex.: BA" >
                                 <span class="text-danger error-text emp_uf_error"></span>
                             </div>
                         </div>
@@ -101,21 +101,21 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">CIDADE:</label>
-                                <input type="text" class="form-control" id="emp_ciade" name="emp_ciade" placeholder="Ex.: Senhor do Bonfim" readonly>
+                                <input type="text" class="form-control" id="emp_ciade" name="emp_ciade" placeholder="Ex.: Senhor do Bonfim" >
                                 <span class="text-danger error-text emp_ciade_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">BAIRRO:</label>
-                                <input type="text" class="form-control" id="emp_bairro" name="emp_bairro" placeholder="Ex.: Centro" readonly>
+                                <input type="text" class="form-control" id="emp_bairro" name="emp_bairro" placeholder="Ex.: Centro" >
                                 <span class="text-danger error-text emp_bairro_error"></span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">ENDEREÇO:</label>
-                                <input type="text" class="form-control" id="emp_endereco" name="emp_endereco" placeholder="Ex.: Rua 7 de Setembro, nº 300." readonly>
+                                <input type="text" class="form-control" id="emp_endereco" name="emp_endereco" placeholder="Ex.: Rua 7 de Setembro, nº 300." >
                                 <span class="text-danger error-text emp_endereco_error"></span>
                             </div>
                         </div>
@@ -174,7 +174,7 @@
                         <div class="col-md-8">
                             <div class="form-group">
                                 <label for="">Nome empresarial:</label>
-                                <input type="text" placeholder="Ex.: Cesta do povo" name="up_loja_nome_empresarial" id="up_loja_nome_empresarial" class="form-control" readonly />
+                                <input type="text" placeholder="Ex.: Cesta do povo" name="up_loja_nome_empresarial" id="up_loja_nome_empresarial" class="form-control"  />
                                 <span class="text-danger error-text up_loja_nome_empresarial_error"></span>
                             </div>
                         </div>

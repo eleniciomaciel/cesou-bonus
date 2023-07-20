@@ -158,7 +158,7 @@ class ColaboradoresAdmimController extends BaseController
                  'reg_cpf'           =>  $this->request->getPost('reg_cpf'),
                  'reg_email'         =>  $this->request->getPost('reg_email'),
                  'reg_login'         =>  $this->request->getPost('reg_login'),
-                 'status'            =>  $this->request->getPost('status'),
+                 'status'            =>  'ativo',
                  'role'              =>  $this->request->getPost('role'),
              ];
 

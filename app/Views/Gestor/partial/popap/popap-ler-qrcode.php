@@ -80,26 +80,39 @@
 
                             <div class="col-md-4">
                                 <label for="valor_venda">VALOR DA VENDA:</label>
-                                <div class="form-group has-success">
-                                    <input type="text" name="valor_venda" id="valor_venda" class="form-control is-valid" required />
-                                    <span class="text-danger error-text valor_venda_error"></span>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon1">R$</span>
+                                        <input type="text" class="form-control" name="valor_venda" id="valor_venda" class="form-control is-valid" required />
+                                        <span class="text-danger error-text valor_venda_error"></span>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="col-md-4">
                                 <label for="valor_desconto">DESCONTO:</label>
-                                <div class="form-group has-success">
-                                    <input type="number" name="valor_desconto" id="valor_desconto" class="form-control is-valid" max="100" required />
-                                    <span class="text-danger error-text valor_desconto_error"></span>
+
+
+
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="basic-addon1">%</span>
+                                        <input type="number" class="form-control" name="valor_desconto" id="valor_desconto" class="form-control is-valid" max="100" required />
+                                        <span class="text-danger error-text valor_desconto_error"></span>
+                                    </div>
                                 </div>
+
                             </div>
 
                             <div class="col-md-4">
-                                <label for="valor_compesado">VALOR DO DESCONTO:</label>
-                                <div class="form-group has-success">
-                                    <input type="text" name="valor_compesado" id="valor_compesado" class="form-control is-valid" readonly required />
-                                    <span class="text-danger error-text valor_compesado_error"></span>
-                                </div>
+                                <label for="" class="text-white">calcular</label>
+                                <button type="button" class="btn bg-gradient-success" onclick="myFunction()">
+                                    <i class="ni ni-check-bold"></i> Calcular
+                                </button>
+                            </div>
+                            <div class="col-12">
+
+                                Resultado: R$<span id="resultado" class="text-muted"></span>
                             </div>
 
                             <div class="col-md-12">

@@ -401,7 +401,7 @@
                         success: function(data) {
                             Swal.fire(
                                 'Deleted!',
-                                data,
+                                data,                                               
                                 'success'
                             )
                             $('#lista_abertos').DataTable().ajax.reload(null, false);

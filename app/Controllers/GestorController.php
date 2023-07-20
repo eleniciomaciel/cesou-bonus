@@ -50,9 +50,6 @@ class GestorController extends BaseController
             {
                 $model = model(CupomModel::class);
                 $user_data = $model->join('acesso_login', 'acesso_login.id = cupom.cup_usuario_id')
-                // ->format('reg_cpf', function($value){
-                //     return substr_replace($value, '***.***.***.**', 3, -2);
-                // })
                 ->where('cup_id', $id)->first();
                 echo json_encode($user_data);
             }
@@ -99,12 +96,6 @@ class GestorController extends BaseController
                     'alpha_numeric_punct'=>'Informe um valor percentual.',
                 ]
             ],
-            'valor_compesado'=>[
-                'rules'=>'required',
-                'errors'=>[
-                    'required'=>'Informe o valor compensado.',
-                ]
-            ],
         ]);
 
         if($validation->run() == FALSE){
@@ -120,16 +111,20 @@ class GestorController extends BaseController
             //dd($row->loja_usuario_id);
              $data = [
                  'cup_status'                =>  'Compensado',
-                 'cup_loja_do_desconto_id'   =>  $row->loja_id,
+                 'cup_loja_do_desconto_id'   =>  $id_logista,
              ];
              $query = $model_cupom->update($id, $data);
+             $venda = (double) str_replace(',', '.', str_replace('.', '', $this->request->getPost('valor_venda')));
+
+             $desconto = $this->request->getPost('valor_desconto');
+             $troco = $desconto / 100 * $venda;
+             
 
              $dado_usuario      = $this->request->getPost('usuario_id');
-             $dado_chave_sf     = $this->request->getPost('hidden_id_sefaz');
-             $dado_vl_venda     = $this->request->getPost('valor_venda');
+             $dado_chave_sf     = $this->request->getPost('hidden_id_cupon');
+             $dado_vl_venda     = $venda;
              $dado_vl_desconto  = $this->request->getPost('valor_desconto');
-             $dado_vl_troco     = $this->request->getPost('valor_compesado');
-             $dado_vl_troco     = $this->request->getPost('valor_compesado');
+             $dado_vl_troco     = $troco;
 
              $this->adicionaCuponCompensado($dado_usuario, $dado_chave_sf, $dado_vl_venda, $dado_vl_desconto, $dado_vl_troco);
              
@@ -144,7 +139,7 @@ class GestorController extends BaseController
     /**
      * INSERIR NO HISTÓRICO DE VENDA DA LOJA
      */
-    public function adicionaCuponCompensado($dado_usuario, $dado_chave_sf, $dado_vl_venda, $dado_vl_desconto, $dado_vl_troco)
+    public function adicionaCuponCompensado($dado_usuario, $id_cupon, $dado_vl_venda, $dado_vl_desconto, $dado_vl_troco)
     {
         $id_logista = session()->get('id');
         $db = db_connect();
@@ -155,7 +150,7 @@ class GestorController extends BaseController
         $data = $model->save([
             'dl_loja_id'            => $row->loja_id,
             'dl_cliente_id'         => $dado_usuario,
-            'dl_chave_cefaz'       =>  $dado_chave_sf,
+            'dl_chave_cefaz'       =>  $id_cupon,
             'dl_valor_venda'        => $dado_vl_venda,
             'dl_total_desconto'     => $dado_vl_desconto,
             'dl_valor_desconto'     => $dado_vl_troco,
@@ -174,20 +169,24 @@ class GestorController extends BaseController
 
     public function clientesLista()
     {
-        $db = model(CupomModel::class);
-        $builder = $db->table('cupom')
-        ->select('log.reg_nome, cupom.created_at AS data_cupon, cupom.cup_valor_cupom, cupom.cup_status')
-        ->join('acesso_login AS log', 'log.id = cupom.cup_usuario_id')->where('cup_status', 'Compensado');
+        $db = model(DescontolojaModel::class);
+        $builder = $db->select('log.reg_nome, dl_valor_venda, dl_valor_desconto, dl_data')
+        ->join('acesso_login AS log', 'log.id = descontolojas.dl_cliente_id')
+        //->join('acesso_login AS log', 'log.id = cupom.cup_usuario_id')
+        ->where('status_pontos', 'Trocado');
 
         return DataTable::of($builder)
-        ->format('data_cupon', function($value){
+        ->format('dl_data', function($value){
             return date('d/m/Y', strtotime($value));
         })
-        ->format('cup_valor_cupom', function($value){
-            return 'R$ '.number_format($value, 2,'.',',');
+        ->format('dl_valor_venda', function($value){
+            return 'R$'.number_format($value, 2,'.',',');
+        })
+        ->format('dl_valor_desconto', function($value){
+            return 'R$'.number_format($value, 2,'.',',');
         })
         ->postQuery(function($builder){
-            $builder->orderBy('data_cupon', 'desc');
+            $builder->orderBy('dl_data', 'desc');
         })->toJson();
     }
 

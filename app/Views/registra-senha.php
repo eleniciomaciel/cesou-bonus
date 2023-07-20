@@ -4,12 +4,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="<?= site_url()?>public/templates/template-admin/img/apple-icon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="<?= site_url()?>public/favicon_package_v0.16/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= site_url()?>public/favicon_package_v0.16/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= site_url()?>public/favicon_package_v0.16/favicon-16x16.png">
-    <link rel="manifest" href="<?= site_url()?>public/favicon_package_v0.16/site.webmanifest">
-    <link rel="mask-icon" href="<?= site_url()?>public/favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="apple-touch-icon" sizes="76x76" href="<?= site_url()?>templates/template-admin/img/apple-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="<?= site_url()?>favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= site_url()?>favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= site_url()?>favicon_package_v0.16/favicon-16x16.png">
+    <link rel="manifest" href="<?= site_url()?>favicon_package_v0.16/site.webmanifest">
+    <link rel="mask-icon" href="<?= site_url()?>favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="theme-color" content="#ffffff">
   <title>
@@ -18,13 +18,13 @@
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
   <!-- Nucleo Icons -->
-  <link href="<?= site_url()?>public/templates/template-admin/css/nucleo-icons.css" rel="stylesheet" />
-  <link href="<?= site_url()?>public/templates/template-admin/css/nucleo-svg.css" rel="stylesheet" />
+  <link href="<?= site_url()?>templates/template-admin/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="<?= site_url()?>templates/template-admin/css/nucleo-svg.css" rel="stylesheet" />
   <!-- Font Awesome Icons -->
-  <script src="<?= site_url()?>public/templates/template-admin/js/fontawesome.js" crossorigin="anonymous"></script>
-  <link href="<?= site_url()?>public/templates/template-admin/css/nucleo-svg.css" rel="stylesheet" />
+  <script src="<?= site_url()?>templates/template-admin/js/fontawesome.js" crossorigin="anonymous"></script>
+  <link href="<?= site_url()?>templates/template-admin/css/nucleo-svg.css" rel="stylesheet" />
   <!-- CSS Files -->
-  <link id="pagestyle" href="<?= site_url()?>public/templates/template-admin/css/soft-ui-dashboard.css?v=1.0.6" rel="stylesheet" />
+  <link id="pagestyle" href="<?= site_url()?>templates/template-admin/css/soft-ui-dashboard.css?v=1.0.6" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -62,7 +62,7 @@
   <!-- End Navbar -->
   <main class="main-content  mt-0">
     <section class="min-vh-100 mb-8">
-      <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('<?= site_url()?>public/templates/template-admin/img/curved-images/curved14.png');">
+      <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('<?= site_url()?>templates/template-admin/img/curved-images/curved14.png');">
         <span class="mask bg-gradient-dark opacity-6"></span>
         <div class="container">
           <div class="row justify-content-center">
@@ -262,13 +262,13 @@
 
 
   <!--   Core JS Files   -->
-  <script src="<?= site_url()?>public/templates/template-admin/js/jquery.min.js"></script>
-  <script src="<?= site_url()?>public/templates/template-admin/js/core/popper.min.js"></script>
-  <script src="<?= site_url()?>public/templates/template-admin/js/core/bootstrap.min.js"></script>
-  <script src="<?= site_url()?>public/templates/template-admin/js/plugins/perfect-scrollbar.min.js"></script>
-  <script src="<?= site_url()?>public/templates/template-admin/js/plugins/smooth-scrollbar.min.js"></script>
-  <script src="<?= site_url()?>public/templates/template-admin/js/jquery.mask.min.js"></script>
-  <script src="<?= site_url()?>public/templates/template-admin/js/sweetalert2.js"></script>
+  <script src="<?= site_url()?>templates/template-admin/js/jquery.min.js"></script>
+  <script src="<?= site_url()?>templates/template-admin/js/core/popper.min.js"></script>
+  <script src="<?= site_url()?>templates/template-admin/js/core/bootstrap.min.js"></script>
+  <script src="<?= site_url()?>templates/template-admin/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="<?= site_url()?>templates/template-admin/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="<?= site_url()?>templates/template-admin/js/jquery.mask.min.js"></script>
+  <script src="<?= site_url()?>templates/template-admin/js/sweetalert2.js"></script>
 
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
@@ -282,7 +282,7 @@
   <!-- Github buttons -->
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="<?= site_url()?>public/templates/template-admin/js/soft-ui-dashboard.min.js?v=1.0.6"></script>
+  <script src="<?= site_url()?>templates/template-admin/js/soft-ui-dashboard.min.js?v=1.0.6"></script>
 
   <script>
     $(document).ready(function() {

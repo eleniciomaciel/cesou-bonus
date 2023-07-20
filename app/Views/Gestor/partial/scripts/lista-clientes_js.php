@@ -1,15 +1,7 @@
 <script>
     $(document).ready(function() {
 
-        $('#table_clientes_loja').DataTable({
-            "language": {
-                "url": "//cdn.datatables.net/plug-ins/1.10.24/i18n/Portuguese-Brasil.json"
-            },
-            processing: true,
-            serverSide: true,
-            order: [], //this mean no init order on datatable
-            ajax: "<?= site_url('gestor/lista-clientes-loja') ?>",
-        });
+
 
         $('#table_lista_clientes_ativos').DataTable({
             "language": {
