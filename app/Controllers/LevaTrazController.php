@@ -47,10 +47,11 @@ class LevaTrazController extends BaseController
                 ]
             ],
             'hora_lvt'=>[
-                'rules'=>'required|validaHoraLevaTraz[data_lvt, hora_lvt]',
+                'rules'=>'required|validaHoraLevaTraz[data_lvt, hora_lvt]|verificaHoraHoje[data_lvt, hora_lvt]',
                 'errors'=>[
                     'required'          =>'Escolha um horário para seu atentimento.',
                     'validaHoraLevaTraz'=>'Esse horário já está agendado por outro clinte, escolha outro.',
+                    'verificaHoraHoje'=>'Ops! A hora não pode ser menor que o momento da solicitação.',
                 ]
             ],
             'lvt_bairro'=>[

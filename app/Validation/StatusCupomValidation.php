@@ -49,8 +49,26 @@ class StatusCupomValidation
         $model = model(LevaTrazModel::class);
         $radio_hora = $data['hora_lvt'];
         $radio_data = $data['data_lvt'];
-        $data_exists = $model->where('lvt_time', $radio_hora)->where('lvt_date', $radio_data)->where('lvt_status !=', 'Cancelado')->first();
+        $data_exists = $model->where('lvt_time', $radio_hora)
+                            ->where('lvt_date', $radio_data)
+                            ->where('lvt_status !=', 'Cancelado')
+                            ->first();
+                            
         if ($data_exists) {
+            return false;
+        }
+        return true;
+    }
+
+    public function verificaHoraHoje($str, string $fields, array $data): bool
+    {
+        $radio_hora = $data['hora_lvt'];
+        $radio_data = $data['data_lvt'];
+        $dia_solicita = $radio_data.' '.$radio_hora;
+        $hora_hoje = date("Y-m-d H:i");
+
+                            
+        if ($dia_solicita <= $hora_hoje) {
             return false;
         }
         return true;

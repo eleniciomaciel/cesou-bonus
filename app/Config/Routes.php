@@ -210,6 +210,12 @@ $routes->group("bradesco_panel", ["filter" => "auth"], function ($routes) {
     //$routes->post("registra_desconto", "GestorController::trocaQrcode");
 });
 
+$routes->group('leva_traz_panel', static function ($routes) {
+    $routes->get('/', 'Levatraz\LevraTrazController::index');
+    $routes->get('status_pedido', 'Levatraz\LevraTrazController::dadoClienteLevaTraz');
+    $routes->post('formAtualizaLevaTraz', 'Levatraz\LevraTrazController::atualizaClienteLevaTraz');
+});
+
 
 $routes->get('logout', 'UserController::logout');
 

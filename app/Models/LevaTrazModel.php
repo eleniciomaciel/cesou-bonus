@@ -52,4 +52,13 @@ class LevaTrazModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getClientes($slug = false)
+    {
+        if ($slug === false) {
+            $data_hoje = date('Y-m-d');
+            return $this->where('lvt_date',$data_hoje)->findAll();
+        }
+        return $this->where(['lvt_id' => $slug])->first();
+    }
 }
