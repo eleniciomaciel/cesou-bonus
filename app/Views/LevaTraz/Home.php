@@ -267,6 +267,9 @@
     <script src="<?= base_url() ?>/templates/template-admin/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="<?= base_url() ?>/templates/template-admin/js/plugins/smooth-scrollbar.min.js"></script>
     <script src="<?= base_url() ?>/templates/template-admin/js/sweetalert2.js"></script>
+
+
+
     <script>
         var win = navigator.platform.indexOf('Win') > -1;
         if (win && document.querySelector('#sidenav-scrollbar')) {

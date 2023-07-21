@@ -81,6 +81,19 @@
 <?= $this->include('Usuarios/partial/popap/popap-levaetraz'); ?>
 <?= $this->endSection() ?>
 <?= $this->section('scripts'); ?>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/5c4dfa1951410568a108bdaf/default';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
 <script>
     $(document).ready(function() {
         $('#lvt_tel_dois').mask("(00)9 0000-0000", {
