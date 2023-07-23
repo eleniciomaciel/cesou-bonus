@@ -78,7 +78,7 @@ class CupomUsuarioController extends BaseController
              for ($x = 100; $x <= $valor_total; $x+= 100) {
      
                 $cliente = $this->request->getPost('id_usuario_cashback');
-                $pontos   = intval($this->request->getPost('valor_comprado'));
+                $pontos   = 1;
                  $data = [
                      [
                         'cup_qrcode_cupom'             =>  $this->request->getPost('resultados'),
@@ -108,9 +108,9 @@ class CupomUsuarioController extends BaseController
         $usuarios_ponto = $model->getCliente($id);
         if ($usuarios_ponto) {
             $data = [
-                'point_pontos'  => $pontos ++,
+                'point_pontos'  => $pontos += $usuarios_ponto['point_pontos'],
             ];
-            return $model->update($id, $data);
+            return $model->update($usuarios_ponto['point_id'], $data);
         } else {
             return $model->save([
                 'point_usuario' => $id,
@@ -215,9 +215,9 @@ class CupomUsuarioController extends BaseController
     {
         $usuarios_id = session()->get('id');
         $db = \Config\Database::connect();
-        $query = $db->query('SELECT SUM(cup_pontos) AS pontos FROM cupom WHERE cup_usuario_id = "'.$usuarios_id.'"');
+        $query = $db->query('SELECT * FROM pontos WHERE point_usuario = "'.$usuarios_id.'"');
         $row   = $query->getRow();
-        echo $row->pontos;
+        echo $row->point_pontos;
     }
 
     public function getCubonsCompensados()
