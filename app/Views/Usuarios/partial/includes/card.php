@@ -4,9 +4,8 @@
             <div class="row">
                 <div class="col-8">
                     <div class="numbers">
-                        <p class="text-sm mb-0 text-capitalize font-weight-bold">PONTOS</p>
                         <h5 class="font-weight-bolder mb-0">
-                            <span id="results_pontos">0</span>
+                            <span id="results_pontos">PONTOS: </span>
                         </h5>
                     </div>
                 </div>
@@ -26,9 +25,8 @@
             <div class="row">
                 <div class="col-8">
                     <div class="numbers">
-                        <p class="text-sm mb-0 text-capitalize font-weight-bold">ATIVOS</p>
                         <h5 class="font-weight-bolder mb-0">
-                            <span id="results_active_cupom">0</span>
+                            <span id="results_active_cupom">ATIVOS </span>
                         </h5>
                     </div>
                 </div>
@@ -48,9 +46,8 @@
             <div class="row">
                 <div class="col-8">
                     <div class="numbers">
-                        <p class="text-sm mb-0 text-capitalize font-weight-bold">COMPENSADOS</p>
                         <h5 class="font-weight-bolder mb-0">
-                            <span id="results_compendados_cupom">0</span>
+                            <span id="results_compendados_cupom">COMPENSADOS </span>
                         </h5>
                     </div>
                 </div>
@@ -70,9 +67,8 @@
             <div class="row">
                 <div class="col-8">
                     <div class="numbers">
-                        <p class="text-sm mb-0 text-capitalize font-weight-bold">LANÇADOS</p>
                         <h5 class="font-weight-bolder mb-0">
-                            <span id="results_restantes_cupom"></span>
+                            <span id="results_restantes_cupom">LANÇADOS </span>
                         </h5>
                     </div>
                 </div>

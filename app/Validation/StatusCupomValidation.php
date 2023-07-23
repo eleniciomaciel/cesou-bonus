@@ -22,9 +22,17 @@ class StatusCupomValidation
     public function validaCuponValor($str, string $fields, array $data): bool
     {
         $valor_total = (double) str_replace(',', '.', str_replace('.', '', $data['valor_comprado']));
-        $valor_const = "200.00";
+        $valor_const = "100.00";
         $valor_100 = (double)$valor_const;
         if ($valor_total < $valor_100 ) {
+            return false;
+        }
+        return true;
+    }
+
+    public function validaCupom($str, string $fields, array $data): bool{
+        $cupom = 'http://nfe.sefaz.ba.gov.br/servicos/nfce/qrcode.aspx?p=29230511114552000147650030001292531590680263|2|1|1|12B1F9B113B48C4C4F00CB341CE7F4F3EF74D60C';
+        if ($data['valor_chave'] == $cupom) {
             return false;
         }
         return true;

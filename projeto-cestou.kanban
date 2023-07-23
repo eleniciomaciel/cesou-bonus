@@ -5,18 +5,18 @@
       "title": "Necessidade",
       "cards": [
         {
-          "id": "e846473c-5bd0-48e8-90b6-9be83cb9f7c1",
+          "id": "a55b1122-7ec1-4fa9-90d7-96e2ef98ddc6",
           "listId": "48bb8475-b49c-4714-a00c-2666651b256f",
-          "title": "ADICIONAR DESCONTO PELO CADASTRO",
+          "title": "listagem de pedido de atendimento em ajax",
           "description": "",
           "labels": [],
           "checkboxes": [],
           "comments": []
         },
         {
-          "id": "01543f8c-665c-46e6-91ee-ab14b18d97ff",
+          "id": "56d579b9-4f3a-4339-b575-6d187042aa07",
           "listId": "48bb8475-b49c-4714-a00c-2666651b256f",
-          "title": "CONSTRUIR AS AÇÕES DO CADASTRO DE PESSOA LOJA E LOJA",
+          "title": "adicionar o desconto na do loginsta na venda do produto em list",
           "description": "",
           "labels": [],
           "checkboxes": [],
@@ -42,6 +42,24 @@
           "id": "f022d6c3-e114-4a6f-8978-f19f73a8fab4",
           "listId": "39346c18-917d-418e-9ef6-0018cd172b6a",
           "title": "adicionar validação de sessção em lista cupons",
+          "description": "",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
+          "id": "e846473c-5bd0-48e8-90b6-9be83cb9f7c1",
+          "listId": "39346c18-917d-418e-9ef6-0018cd172b6a",
+          "title": "ADICIONAR DESCONTO PELO CADASTRO",
+          "description": "",
+          "labels": [],
+          "checkboxes": [],
+          "comments": []
+        },
+        {
+          "id": "01543f8c-665c-46e6-91ee-ab14b18d97ff",
+          "listId": "39346c18-917d-418e-9ef6-0018cd172b6a",
+          "title": "CONSTRUIR AS AÇÕES DO CADASTRO DE PESSOA LOJA E LOJA",
           "description": "",
           "labels": [],
           "checkboxes": [],

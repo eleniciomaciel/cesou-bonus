@@ -42,4 +42,11 @@ class PontosModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getCliente($id){
+        if ($id === false) {
+            return $this->findAll();
+        }
+        return $this->where(['point_usuario' => $id])->first();
+    }
 }
