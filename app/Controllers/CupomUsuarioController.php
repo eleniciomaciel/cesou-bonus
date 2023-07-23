@@ -27,16 +27,17 @@ class CupomUsuarioController extends BaseController
         $validation = \Config\Services::validation();
         $this->validate([
              'resultados'=>[
-                 'rules'=>'required|is_unique[cupom.cup_qrcode_cupom]',
+                 'rules'=>'required',
                  'errors'=>[
                      'required'=>'É necessário ler o qrcode do cupom.',
-                     'is_unique'=>'Ops! Esse QR CODE já foi cadastrado.',
+                     
                  ]
              ],
              'valor_chave'=>[
-                  'rules'=>'required',
+                  'rules'=>'required|validaCupom[valor_chave]',
                   'errors'=>[
                       'required'=>'A chave da nota é obrigatório.',
+                      'validaCupom'=>'Ops! esse qrcode não pode ser inserido.',
                   ]
             ],
             'data_compra'=>[
@@ -74,8 +75,10 @@ class CupomUsuarioController extends BaseController
              //Insert data into db
              $valor_total = (double) str_replace(',', '.', str_replace('.', '', $this->request->getPost('valor_comprado')));
 
-             for ($x = 200; $x <= $valor_total; $x+= 200) {
+             for ($x = 100; $x <= $valor_total; $x+= 100) {
      
+                $cliente = $this->request->getPost('id_usuario_cashback');
+                $pontos   = intval($this->request->getPost('valor_comprado'));
                  $data = [
                      [
                         'cup_qrcode_cupom'             =>  $this->request->getPost('resultados'),
@@ -86,10 +89,11 @@ class CupomUsuarioController extends BaseController
                         'cup_empresa_vendedora_cupom'  =>  $this->request->getPost('empresa_vendedora'),
                         'cup_data_vencimento_cupom'    =>  date('Y-m-d', strtotime($this->request->getPost('data_compra').'+ 30 days')),
                         'cup_usuario_id'               =>  $this->request->getPost('id_usuario_cashback'),
-                        'cup_pontos'                   =>  intval($this->request->getPost('valor_comprado'))
+                        'cup_pontos'                   =>  1
                      ],
                  ];   
                 $query = $model_cupom->insertBatch($data);
+                $this->somaPontos($cliente, $pontos);
              }
              if($query){
                 echo json_encode(['code'=>1,'msg'=>'Cupom cadastrado com sucesso.']);
@@ -99,6 +103,22 @@ class CupomUsuarioController extends BaseController
         }
     }
 
+    public function somaPontos($id, $pontos){
+        $model = model(PontosModel::class);
+        $usuarios_ponto = $model->getCliente($id);
+        if ($usuarios_ponto) {
+            $data = [
+                'point_pontos'  => $pontos ++,
+            ];
+            return $model->update($id, $data);
+        } else {
+            return $model->save([
+                'point_usuario' => $id,
+                'point_pontos'  => $pontos,
+            ]);
+        }
+
+    }
     public function listaCupons()
     {
         $db = model(CupomModel::class);
@@ -195,9 +215,9 @@ class CupomUsuarioController extends BaseController
     {
         $usuarios_id = session()->get('id');
         $db = \Config\Database::connect();
-        $query = $db->query('SELECT * FROM pontos WHERE point_usuario   = "'.$usuarios_id.'"');
+        $query = $db->query('SELECT SUM(cup_pontos) AS pontos FROM cupom WHERE cup_usuario_id = "'.$usuarios_id.'"');
         $row   = $query->getRow();
-        echo $row->point_pontos;
+        echo $row->pontos;
     }
 
     public function getCubonsCompensados()
