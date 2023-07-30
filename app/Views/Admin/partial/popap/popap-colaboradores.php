@@ -70,6 +70,7 @@
                                 <option value="admin">ADMINISTRADOR</option>
                                 <option value="bradesco_panel">BRADESCO</option>
                                 <option value="leva_traz_panel">LEVA E TRZ</option>
+                                <option value="Caixa">Caixa</option>
                             </select>
                         </div>
                     </div>
