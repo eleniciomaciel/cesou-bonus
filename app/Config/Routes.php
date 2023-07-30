@@ -189,6 +189,14 @@ $routes->group("user", ["filter" => "auth"], function ($routes) {
      */
     $routes->match(['get', 'post'], 'senha-caixa', 'SenhaCaixaController::index');
 
+    /**
+     * desconto pontos
+     */
+    $routes->get("pontos-desconto", "CupomUsuarioController::pageDesconto");
+    $routes->get("pontos_cliente_view", "CupomUsuarioController::clientePontosView");
+    $routes->get('compensa_pontos_cliente/(:num)','CupomUsuarioController::pontosCliente/$1');
+    $routes->get('listaPontosCompensados','CupomUsuarioController::clientePontosViewCompensados');
+
 });
 
 /**
@@ -214,6 +222,12 @@ $routes->group('leva_traz_panel', static function ($routes) {
     $routes->get('/', 'Levatraz\LevraTrazController::index');
     $routes->get('status_pedido', 'Levatraz\LevraTrazController::dadoClienteLevaTraz');
     $routes->post('formAtualizaLevaTraz', 'Levatraz\LevraTrazController::atualizaClienteLevaTraz');
+});
+
+$routes->group('Caixa', static function ($routes) {
+    $routes->get('/', 'Caixa\CaixaController::index');
+    $routes->get("cliente_view_dado", "Caixa\CaixaController::clientePontosList");
+    $routes->post("desconta_ponto", "Caixa\CaixaController::clienteCompensaPontos");
 });
 
 

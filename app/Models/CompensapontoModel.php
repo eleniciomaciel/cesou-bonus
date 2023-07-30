@@ -4,19 +4,19 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PontosModel extends Model
+class CompensapontoModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'pontos';
-    protected $primaryKey       = 'point_id';
+    protected $table            = 'compensapontos';
+    protected $primaryKey       = 'id_cp';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'point_usuario',
-        'point_pontos'
+        'cliente_id',
+        'pontos',
     ];
 
     // Dates
@@ -43,18 +43,8 @@ class PontosModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    public function getCliente($id){
-        if ($id === false) {
-            return $this->findAll();
-        }
-        return $this->where(['point_usuario' => $id])->first();
+    public function getClientePontos($id = null){
+        return $this->join('acesso_login', 'acesso_login.id = compensapontos.cliente_id')->findAll();
     }
 
-    public function getPontos($id){
-        if ($id === false) {
-            return $this->findAll();
-        }
-        return $this->join('acesso_login', 'acesso_login.id = pontos.point_usuario')
-        ->where(['point_id' => $id])->first();
-    }
 }

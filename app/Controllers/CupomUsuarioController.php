@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\CompensapontoModel;
 use App\Models\CupomModel;
 use App\Models\LojaModel;
 use App\Models\PontosModel;
@@ -528,6 +529,59 @@ class CupomUsuarioController extends BaseController
              }else{
                  echo json_encode(['code'=>0,'msg'=>'Existem alguns erros, verifique por favor']);
              }
+        }
+    }
+
+    public function pageDesconto($page = 'descontaPontos'){
+        if (! is_file(APPPATH . 'Views/Usuarios/partial/pages/' . $page . '.php')) {
+            throw new PageNotFoundException($page);
+        }
+
+        $data['title'] = ucfirst($page);
+        return view('Usuarios/partial/pages/'. $page);
+    }
+
+    public function clientePontosView()
+    {
+        if ($this->request->isAJAX()) {
+
+            $model = model(PontosModel::class);
+            $cliente = $model->getCliente(session()->get('id'));
+
+
+            if ($cliente) {
+                $response = [
+                    'status' => 'success',
+                    'message' => $cliente,
+                ];
+            } else {
+                $response = [
+                    'status' => 'Insucesso',
+                    'message' => '0',
+                ];
+            }
+            
+    
+            return $this->response->setJSON($response);
+        }
+    }
+
+    public function clientePontosViewCompensados()
+    {
+        if ($this->request->isAJAX()) {
+            $model = new CompensapontoModel();
+            $data = $model->where('cliente_id', session()->get('id'))->findAll();
+            return $this->response->setJSON($data);
+        }
+    }
+
+    public function pontosCliente($id)
+    {
+        if($id)
+        {
+            $model = model(PontosModel::class);
+            $user_data = $model->where('point_usuario', $id)->first();
+            echo json_encode($user_data);
         }
     }
 }

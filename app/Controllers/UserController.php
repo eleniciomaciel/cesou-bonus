@@ -53,6 +53,9 @@ class UserController extends BaseController
                 elseif($user['role'] == "bradesco_panel"){
                     return redirect()->to(base_url('bradesco_panel'));
                 }
+                elseif($user['role'] == "Caixa"){
+                    return redirect()->to(base_url('Caixa'));
+                }
             }
         }
         return view('login');
