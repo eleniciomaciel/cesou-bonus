@@ -145,7 +145,7 @@
                   <div class="mb-3">
                     <label for="">CONFIRMAÇÃO DA SENHA:</label>
                     <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Ex.: 123" required>
-                    <span class="text-danger error-text reg_nome_error"></span>
+                    <span class="text-danger error-text confirm_password_error"></span>
                   </div>
 
 

@@ -88,7 +88,11 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">HOME</a></li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">SOLICITAÇÃO</li>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Sair
+                            <a class="btn btn-facebook btn-simple mb-0 ps-1 pe-2 py-0" href="<?= site_url('logout') ?>">
+                                <i class="fa fa-sign-in fa-lg" aria-hidden="true" style="color:red"></i>
+                            </a>
+                        </li>
                     </ol>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
@@ -118,7 +122,7 @@
         <div class="container-fluid py-4">
 
             <div class="row">
-            <h4>Resgate de Pontos</h4>
+                <h4>Resgate de Pontos</h4>
                 <div class="col-6 d-flex align-items-center">
                     <button type="button" class="btn_scanner btn bg-gradient-info mt-lg-7 mb-0">
                         <i class="fas fa-eye" aria-hidden="true"></i>&nbsp;&nbsp;LER PONTOS
