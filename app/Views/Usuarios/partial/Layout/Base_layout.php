@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8" />
@@ -31,8 +31,7 @@
 </head>
 
 <body class="g-sidenav-show">
-    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 "
-        id="sidenav-main">
+    <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3" id="sidenav-main">
         <?= $this->include('Usuarios/partial/includes/menu') ?>
     </aside>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">

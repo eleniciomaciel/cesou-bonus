@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $default = [
         'DSN'      => '',
-        'hostname' => 'localhost',
-        'username' => 'root',
-        'password' => '',
-        'database' => 'cestou',
+        'hostname' => 'cestou.top',
+        'username' => 'romast55_cestou',
+        'password' => '9bnBRF^Zl2Me',
+        'database' => 'romast55_cestou',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

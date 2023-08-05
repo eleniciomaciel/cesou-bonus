@@ -47,7 +47,7 @@
                 <div class="col-8">
                     <div class="numbers">
                         <h5 class="font-weight-bolder mb-0">
-                            <span id="results_compendados_cupom">COMPENSADOS </span>
+                            <span id="results_compendados_cupom">TROCADOS </span>
                         </h5>
                     </div>
                 </div>

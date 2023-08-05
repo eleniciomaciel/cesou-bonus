@@ -71,6 +71,25 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-xl-4 col-md-6 mb-xl-0 mb-4">
+                        <div class="card card-blog card-plain">
+                            <div class="position-relative">
+                                <a class="d-block shadow-xl border-radius-xl">
+                                    <img src="<?= base_url() ?>/templates/template-admin/img/cestou ponto.jpeg" alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                                </a>
+                            </div>
+                            <div class="card-body px-1 pb-0">
+                                <a href="javascript:;">
+                                    <h5>
+                                        CESTOU PONTOS
+                                    </h5>
+                                </a>
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <a href="/user/pontos-desconto" type="button" class="btn btn-outline-primary btn-sm mb-0">CUPÔNS DE DESCONTO</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
