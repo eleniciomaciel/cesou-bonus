@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\DescontolojaModel;
 use \Hermawan\DataTables\DataTable;
 
 class AdminController extends BaseController
@@ -16,7 +17,9 @@ class AdminController extends BaseController
     }
     public function index()
     {
-        return view("Admin/home-admin");
+        $model = model(DescontolojaModel::class);
+        $data['VendasMes'] = $model->findAll();
+        return view("Admin/home-admin", $data);
     }
 
     public function clientes()

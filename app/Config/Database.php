@@ -24,12 +24,14 @@ class Database extends Config
     /**
      * The default database connection.
      */
+
+    
     public array $default = [
         'DSN'      => '',
-        'hostname' => 'cestou.top',
-        'username' => 'romast55_cestou',
-        'password' => '9bnBRF^Zl2Me',
-        'database' => 'romast55_cestou',
+        'hostname' => 'localhost',
+        'username' => 'root',
+        'password' => '',
+        'database' => 'cestou',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
@@ -43,6 +45,26 @@ class Database extends Config
         'failover' => [],
         'port'     => 3306,
     ];
+
+    // public array $default = [
+    //     'DSN'      => '',
+    //     'hostname' => 'cestou.top',
+    //     'username' => 'romast55_cestou',
+    //     'password' => '9bnBRF^Zl2Me',
+    //     'database' => 'romast55_cestou',
+    //     'DBDriver' => 'MySQLi',
+    //     'DBPrefix' => '',
+    //     'pConnect' => false,
+    //     'DBDebug'  => true,
+    //     'charset'  => 'utf8',
+    //     'DBCollat' => 'utf8_general_ci',
+    //     'swapPre'  => '',
+    //     'encrypt'  => false,
+    //     'compress' => false,
+    //     'strictOn' => false,
+    //     'failover' => [],
+    //     'port'     => 3306,
+    // ];
 
     /**
      * This database connection is used when

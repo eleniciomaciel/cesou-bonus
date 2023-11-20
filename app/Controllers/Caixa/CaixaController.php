@@ -12,6 +12,7 @@ class CaixaController extends BaseController
     {
         if (session()->get('role') != "Caixa") {
             echo 'Access denied';
+            return redirect('/');
             exit;
         }
     }

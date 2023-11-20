@@ -7,10 +7,18 @@
 <div class="row mt-4">
     <div class="col-12">
         <div class="card mb-4">
-            <div class="card-header pb-0 p-3">
-                <h6 class="mb-1">SERVIÇOS</h6>
-                <p class="text-sm">ESCOLHA SEU CANAL DE ATENDIMENTO</p>
+
+            <div class="card-header d-flex align-items-center border-bottom py-3">
+                <div class="d-flex align-items-center">
+                    <h6 class="mb-1">SERVIÇOS</h6>
+                </div>
+                <div class="text-end ms-auto">
+                    <button type="button" class="gerarQrIdDoCleinte btn btn-sm btn bg-gradient-warning mb-0" id="<?= session()->get('id') ?>">
+                        <i class="fa fa-qrcode pe-2" aria-hidden="true"></i> CÓD. CLIENTE
+                    </button>
+                </div>
             </div>
+
             <div class="card-body p-3">
                 <div class="row">
                     <div class="col-xl-4 col-md-6 mb-xl-0 mb-4">
@@ -95,4 +103,36 @@
         </div>
     </div>
 </div>
+<?= $this->include('Usuarios/partial/popap/popap-gerar-qrcode'); ?>
+<?= $this->endSection() ?>
+<?= $this->section('scripts'); ?>
+<script src="<?= base_url() ?>/templates/template-admin/js/plugins/html5-qrcode.min.js"></script>
+<script src="<?= base_url() ?>/templates/template-admin/js/plugins/classyqr.min.js"></script>
+<script>
+    /**
+     * gera qrcode do ID DO CLIENTE
+     */
+
+    $(document).on('click', '.gerarQrIdDoCleinte', function() {
+        const id = $(this).attr('id');
+      
+        $.ajax({
+            url: "<?= site_url('user/qrcode_build_client'); ?>",
+            method: "GET",
+            data: {
+                id: id
+            },
+            dataType: 'JSON',
+            success: function(data) {
+                let cod_id = data['id'];
+
+                $('#modal-id_usuario_qrcode').modal('show');
+                $("#qr7").ClassyQR({
+                    type: 'text',
+                    text: + cod_id
+                });
+            }
+        });
+    });
+</script>
 <?= $this->endSection() ?>

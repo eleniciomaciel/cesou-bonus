@@ -23,11 +23,9 @@
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
     <link href="<?= base_url() ?>/templates/template-admin/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link id="pagestyle" href="<?= base_url() ?>/templates/template-admin/css/soft-ui-dashboard.css?v=1.0.6"
-        rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    
+    <link id="pagestyle" href="<?= base_url() ?>/templates/template-admin/css/soft-ui-dashboard.css?v=1.0.6" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 
 <body class="g-sidenav-show">
@@ -36,8 +34,7 @@
     </aside>
     <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
         <!-- Navbar -->
-        <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl position-sticky blur shadow-blur mt-4 left-auto top-1 z-index-sticky"
-            id="navbarBlur" navbar-scroll="true">
+        <nav class="navbar navbar-main navbar-expand-lg position-sticky mt-4 top-1 px-0 mx-4 shadow-none border-radius-xl z-index-sticky" id="navbarBlur" data-scroll="true">
             <?= $this->include('Usuarios/partial/includes/nav') ?>
         </nav>
         <!-- End Navbar -->
@@ -71,16 +68,12 @@
                             <div class="nav-wrapper position-relative end-0">
                                 <ul class="nav nav-pills nav-fill p-1" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab"
-                                            href="#profile-tabs-simple" role="tab" aria-controls="profile"
-                                            aria-selected="true">
+                                        <a class="nav-link mb-0 px-0 py-1 active" data-bs-toggle="tab" href="#profile-tabs-simple" role="tab" aria-controls="profile" aria-selected="true">
                                             Dados pessoal
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab"
-                                            href="#dashboard-tabs-simple" role="tab" aria-controls="dashboard"
-                                            aria-selected="false">
+                                        <a class="nav-link mb-0 px-0 py-1" data-bs-toggle="tab" href="#dashboard-tabs-simple" role="tab" aria-controls="dashboard" aria-selected="false">
                                             Dados de acesso
                                         </a>
                                     </li>
@@ -89,22 +82,18 @@
 
                             <div class="card-body p-3 mt-2">
                                 <div class="tab-content" id="v-pills-tabContent">
-                                    <div class="tab-pane fade show position-relative active border-radius-lg"
-                                        id="profile-tabs-simple" role="tabpanel" aria-labelledby="profile-tabs-simple">
+                                    <div class="tab-pane fade show position-relative active border-radius-lg" id="profile-tabs-simple" role="tabpanel" aria-labelledby="profile-tabs-simple">
 
-                                        <form role="form text-left" action="/user/atualiza-perfil" method="POST"
-                                            id="form_perfil">
+                                        <form role="form text-left" action="/user/atualiza-perfil" method="POST" id="form_perfil">
                                             <?= csrf_field() ?>
 
-                                            <input type="hidden" name="id_perfil"
-                                                value="<?= session()->get('reg_nome') ?>">
+                                            <input type="hidden" name="id_perfil" value="<?= session()->get('reg_nome') ?>">
 
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <label for="">Nome:</label>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" name="perfil_name"
-                                                            id="perfil_name" value="<?= session()->get('reg_nome') ?>">
+                                                        <input type="text" class="form-control" name="perfil_name" id="perfil_name" value="<?= session()->get('reg_nome') ?>">
                                                         <span class="text-danger error-text perfil_name_error"></span>
                                                     </div>
                                                 </div>
@@ -112,8 +101,7 @@
                                                 <div class="col-md-6">
                                                     <label for="">CPF:</label>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" name="perfil_cpf"
-                                                            id="perfil_cpf" value="<?= session()->get('reg_cpf') ?>" />
+                                                        <input type="text" class="form-control" name="perfil_cpf" id="perfil_cpf" value="<?= session()->get('reg_cpf') ?>" />
                                                         <span class="text-danger error-text perfil_cpf_error"></span>
                                                     </div>
                                                 </div>
@@ -121,19 +109,15 @@
                                                 <div class="col-md-6">
                                                     <label for="">TELEFONE:</label>
                                                     <div class="form-group">
-                                                        <input type="tel" class="form-control" name="perfil_telefone"
-                                                            id="perfil_telefone"
-                                                            value="<?= session()->get('reg_telefone') ?>" />
-                                                        <span
-                                                            class="text-danger error-text perfil_telefone_error"></span>
+                                                        <input type="tel" class="form-control" name="perfil_telefone" id="perfil_telefone" value="<?= session()->get('reg_telefone') ?>" />
+                                                        <span class="text-danger error-text perfil_telefone_error"></span>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-3">
                                                     <label for="">CEP:</label>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" name="perfil_cep"
-                                                            id="perfil_cep" value="<?= session()->get('reg_cep') ?>" />
+                                                        <input type="text" class="form-control" name="perfil_cep" id="perfil_cep" value="<?= session()->get('reg_cep') ?>" />
                                                         <span class="text-danger error-text perfil_cep_error"></span>
                                                     </div>
                                                 </div>
@@ -141,8 +125,7 @@
                                                 <div class="col-md-2">
                                                     <label for="">UF:</label>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" name="perfil_uf"
-                                                            id="perfil_uf" value="<?= session()->get('reg_uf') ?>" />
+                                                        <input type="text" class="form-control" name="perfil_uf" id="perfil_uf" value="<?= session()->get('reg_uf') ?>" />
                                                         <span class="text-danger error-text perfil_uf_error"></span>
                                                     </div>
                                                 </div>
@@ -150,9 +133,7 @@
                                                 <div class="col-md-7">
                                                     <label for="">CIDADE:</label>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" name="perfil_cidade"
-                                                            id="perfil_cidade"
-                                                            value="<?= session()->get('reg_cidade') ?>" />
+                                                        <input type="text" class="form-control" name="perfil_cidade" id="perfil_cidade" value="<?= session()->get('reg_cidade') ?>" />
                                                         <span class="text-danger error-text perfil_cidade_error"></span>
                                                     </div>
                                                 </div>
@@ -160,9 +141,7 @@
                                                 <div class="col-md-12">
                                                     <label for="">BAIRRO:</label>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" name="perfil_bairro"
-                                                            id="perfil_bairro"
-                                                            value="<?= session()->get('reg_bairro') ?>" />
+                                                        <input type="text" class="form-control" name="perfil_bairro" id="perfil_bairro" value="<?= session()->get('reg_bairro') ?>" />
                                                         <span class="text-danger error-text perfil_bairro_error"></span>
                                                     </div>
                                                 </div>
@@ -170,51 +149,37 @@
                                                 <div class="col-md-12">
                                                     <label for="">ENDEREÇO:</label>
                                                     <div class="form-group">
-                                                        <input type="text" class="form-control" name="perfil_endereco"
-                                                            id="perfil_endereco"
-                                                            value="<?= session()->get('reg_endereco') ?>" />
-                                                        <span
-                                                            class="text-danger error-text perfil_endereco_error"></span>
+                                                        <input type="text" class="form-control" name="perfil_endereco" id="perfil_endereco" value="<?= session()->get('reg_endereco') ?>" />
+                                                        <span class="text-danger error-text perfil_endereco_error"></span>
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-12">
                                                     <div class="text-center">
-                                                        <button type="submit"
-                                                            class="class_load_envia_up_perfil btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0"
-                                                            id="id_btn_load_up_perfil">ATUALIZAR</button>
+                                                        <button type="submit" class="class_load_envia_up_perfil btn btn-round bg-gradient-info btn-lg w-100 mt-4 mb-0" id="id_btn_load_up_perfil">ATUALIZAR</button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
 
                                     </div>
-                                    <div class="tab-pane fade position-relative height-400 border-radius-lg"
-                                        id="dashboard-tabs-simple" role="tabpanel"
-                                        aria-labelledby="dashboard-tabs-simple"
-                                        style="background-image: url('../../assets/img/bg-smart-home-2.jpg'); background-size:cover;">
+                                    <div class="tab-pane fade position-relative height-400 border-radius-lg" id="dashboard-tabs-simple" role="tabpanel" aria-labelledby="dashboard-tabs-simple" style="background-image: url('../../assets/img/bg-smart-home-2.jpg'); background-size:cover;">
 
-                                        <form action="/user/atualiza_acesso_login" method="POST" id="form_perfil_acesso"
-                                            role="form text-left">
+                                        <form action="/user/atualiza_acesso_login" method="POST" id="form_perfil_acesso" role="form text-left">
                                             <?= csrf_field() ?>
-                                            <input type="hidden" name="id_perfil_login"
-                                                value="<?= session()->get('reg_nome') ?>">
+                                            <input type="hidden" name="id_perfil_login" value="<?= session()->get('reg_nome') ?>">
                                             <label>Email de acesso</label><br>
                                             <span class="text-danger error-text acesso_email_error"></span>
                                             <div class="input-group mb-3">
-                                                <input type="email" class="form-control" name="acesso_email"
-                                                    id="acesso_email" value="<?= session()->get('reg_email') ?>">
+                                                <input type="email" class="form-control" name="acesso_email" id="acesso_email" value="<?= session()->get('reg_email') ?>">
                                             </div>
                                             <label>Nova Senha:</label><br>
                                             <span class="text-danger error-text acesso_senha_error"></span>
                                             <div class="input-group mb-3">
-                                                <input type="text" class="form-control" name="acesso_senha"
-                                                    id="acesso_senha">
+                                                <input type="text" class="form-control" name="acesso_senha" id="acesso_senha">
                                             </div>
                                             <div class="text-center">
-                                                <button type="submit"
-                                                    class="class_load_envia_up_perfil_acesso btn btn-round bg-gradient-danger btn-lg w-100 mt-4 mb-0"
-                                                    id="id_btn_load_up_perfil_acesso">ATUALIZAR</button>
+                                                <button type="submit" class="class_load_envia_up_perfil_acesso btn btn-round bg-gradient-danger btn-lg w-100 mt-4 mb-0" id="id_btn_load_up_perfil_acesso">ATUALIZAR</button>
                                             </div>
                                         </form>
 
@@ -225,8 +190,7 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn bg-gradient-secondary"
-                                data-bs-dismiss="modal">Sair</button>
+                            <button type="button" class="btn bg-gradient-secondary" data-bs-dismiss="modal">Sair</button>
                         </div>
                     </div>
                 </div>
@@ -262,45 +226,45 @@
     <script src="<?= base_url() ?>/templates/template-admin/js/soft-ui-dashboard.min.js?v=1.0.6"></script>
     <?= $this->renderSection('scripts'); ?>
     <script>
-        $(document).ready(function () {
-            
-            $.ajax({
-                url: "<?php echo site_url('user/listaPontos'); ?>",
-                cache: false
-            })
-            .done(function (html) {
-                $("#results_pontos").append(html);
-            });
+        $(document).ready(function() {
 
             $.ajax({
-                url: "<?php echo site_url('user/listaTotalCupons'); ?>",
-                cache: false
-            })
-            .done(function (html) {
-                $("#results_active_cupom").append(html);
-            });
+                    url: "<?php echo site_url('user/listaPontos'); ?>",
+                    cache: false
+                })
+                .done(function(html) {
+                    $("#results_pontos").append(html);
+                });
 
             $.ajax({
-                url: "<?php echo site_url('user/listaCuponsConpensados'); ?>",
-                cache: false
-            })
-                .done(function (html) {
+                    url: "<?php echo site_url('user/listaTotalCupons'); ?>",
+                    cache: false
+                })
+                .done(function(html) {
+                    $("#results_active_cupom").append(html);
+                });
+
+            $.ajax({
+                    url: "<?php echo site_url('user/listaCuponsConpensados'); ?>",
+                    cache: false
+                })
+                .done(function(html) {
                     $("#results_compendados_cupom").append(html);
                 });
 
             $.ajax({
-                url: "<?php echo site_url('user/listaCuponRestantes'); ?>",
-                cache: false
-            })
-                .done(function (html) {
+                    url: "<?php echo site_url('user/listaCuponRestantes'); ?>",
+                    cache: false
+                })
+                .done(function(html) {
                     $("#results_restantes_cupom").append(html);
                 });
 
             $.ajax({
-                url: "<?php echo site_url('user/listVencidosTrocados'); ?>",
-                cache: false
-            })
-                .done(function (html) {
+                    url: "<?php echo site_url('user/listVencidosTrocados'); ?>",
+                    cache: false
+                })
+                .done(function(html) {
                     $("#results_cupons_vencidos_resgatados").html(html);
                 });
 
@@ -308,10 +272,10 @@
              * 
              */
             $.ajax({
-                url: "<?php echo site_url('user/listPromocionalLojas'); ?>",
-                cache: false
-            })
-                .done(function (html) {
+                    url: "<?php echo site_url('user/listPromocionalLojas'); ?>",
+                    cache: false
+                })
+                .done(function(html) {
                     $("#results_card_promocional").html(html);
                 });
 
@@ -319,10 +283,10 @@
              * lista menu promoçõe
              */
             $.ajax({
-                url: "<?php echo site_url('user/listPromocaoMenu'); ?>",
-                cache: false
-            })
-                .done(function (html) {
+                    url: "<?php echo site_url('user/listPromocaoMenu'); ?>",
+                    cache: false
+                })
+                .done(function(html) {
                     $("#results_menu_promocional").html(html);
                 });
 
@@ -333,7 +297,7 @@
             let preload_btn_up_perfil = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&ensp;Salvando, aguarde...';
             let btn_default_up_perfil = 'Atualizar';
 
-            $('#form_perfil').submit(function (e) {
+            $('#form_perfil').submit(function(e) {
                 e.preventDefault();
                 var form = this;
                 $.ajax({
@@ -343,16 +307,16 @@
                     processData: false,
                     dataType: 'json',
                     contentType: false,
-                    beforeSend: function () {
+                    beforeSend: function() {
                         $(form).find('span.error-text').text('');
                         $('.class_load_envia_up_perfil').html(preload_btn_up_perfil);
                         $('.class_load_envia_up_perfil').attr('disabled', 'disabled');
                     },
-                    complete: function () {
+                    complete: function() {
                         $('#id_btn_load_up_perfil').html(btn_default_up_perfil);
                         $('.class_load_envia_up_perfil').attr('disabled', false);
                     },
-                    success: function (data) {
+                    success: function(data) {
                         if ($.isEmptyObject(data.error)) {
                             if (data.code == 1) {
                                 Swal.fire(
@@ -368,7 +332,7 @@
                                 );
                             }
                         } else {
-                            $.each(data.error, function (prefix, val) {
+                            $.each(data.error, function(prefix, val) {
                                 $(form).find('span.' + prefix + '_error').text(val);
                             });
                         }
@@ -383,7 +347,7 @@
             let preload_btn_up_acesso = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&ensp;Salvando, aguarde...';
             let btn_default_up_acesso = 'Atualizar';
 
-            $('#form_perfil_acesso').submit(function (e) {
+            $('#form_perfil_acesso').submit(function(e) {
                 e.preventDefault();
                 var form = this;
                 $.ajax({
@@ -393,16 +357,16 @@
                     processData: false,
                     dataType: 'json',
                     contentType: false,
-                    beforeSend: function () {
+                    beforeSend: function() {
                         $(form).find('span.error-text').text('');
                         $('.class_load_envia_up_perfil_acesso').html(preload_btn_up_acesso);
                         $('.class_load_envia_up_perfil_acesso').attr('disabled', 'disabled');
                     },
-                    complete: function () {
+                    complete: function() {
                         $('#id_btn_load_up_perfil_acesso').html(btn_default_up_acesso);
                         $('.class_load_envia_up_perfil_acesso').attr('disabled', false);
                     },
-                    success: function (data) {
+                    success: function(data) {
                         if ($.isEmptyObject(data.error)) {
                             if (data.code == 1) {
                                 Swal.fire(
@@ -418,7 +382,7 @@
                                 );
                             }
                         } else {
-                            $.each(data.error, function (prefix, val) {
+                            $.each(data.error, function(prefix, val) {
                                 $(form).find('span.' + prefix + '_error').text(val);
                             });
                         }
@@ -433,7 +397,7 @@
             let preload_btn_up_senha_caixa = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>&ensp;Verificando, aguarde...';
             let btn_default_up_senha_caixa = 'LIBERAR VALOR';
 
-            $('#acesso_libera_senha_caixa').submit(function (e) {
+            $('#acesso_libera_senha_caixa').submit(function(e) {
                 e.preventDefault();
                 var form = this;
                 $.ajax({
@@ -443,16 +407,16 @@
                     processData: false,
                     dataType: 'json',
                     contentType: false,
-                    beforeSend: function () {
+                    beforeSend: function() {
                         $(form).find('span.error-text').text('');
                         $('.class_load_envia_up_senha_caixa').html(preload_btn_up_senha_caixa);
                         $('.class_load_envia_up_senha_caixa').attr('disabled', 'disabled');
                     },
-                    complete: function () {
+                    complete: function() {
                         $('#id_btn_load_up_senha_caixa').html(btn_default_up_senha_caixa);
                         $('.class_load_envia_up_senha_caixa').attr('disabled', false);
                     },
-                    success: function (data) {
+                    success: function(data) {
                         if ($.isEmptyObject(data.error)) {
                             if (data.code == 1) {
                                 Swal.fire(
@@ -472,13 +436,14 @@
                                 );
                             }
                         } else {
-                            $.each(data.error, function (prefix, val) {
+                            $.each(data.error, function(prefix, val) {
                                 $(form).find('span.' + prefix + '_error').text(val);
                             });
                         }
                     }
                 });
             });
+
         });
     </script>
 </body>

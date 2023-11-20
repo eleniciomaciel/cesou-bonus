@@ -101,13 +101,13 @@
 
                   <div class="mb-3">
                     <label for="">NOVA SENHA:</label>
-                    <input type="password" class="form-control" name="reg_senha" id="reg_senha" placeholder="Ex.: 123" aria-label="Password" aria-describedby="password-addon" required>
+                    <input type="text" class="form-control" name="reg_senha" id="reg_senha" placeholder="Ex.: 123" aria-label="Password" aria-describedby="password-addon" required>
                     <span class="text-danger error-text reg_senha_error"></span>
                   </div>
 
                   <div class="mb-3">
                     <label for="">CONFIRMAÇÃO DA SENHA:</label>
-                    <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Ex.: 123" required>
+                    <input type="text" class="form-control" name="confirm_password" id="confirm_password" placeholder="Ex.: 123" required>
                     <span class="text-danger error-text reg_nome_error"></span>
                   </div>
 

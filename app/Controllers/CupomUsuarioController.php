@@ -179,7 +179,7 @@ class CupomUsuarioController extends BaseController
             <div class="progress-wrapper">
                 <div class="progress-info">
                     <div class="progress-percentage">
-                        <span class="text-sm font-weight-bold">Faltam: '.$dias_total.' dias para vencer </span>
+                        <span class="text-sm font-weight-bold">Faltam: '.$dias_restante.' dias para vencer </span>
                     </div>
                 </div>
                 <div class="progress">
@@ -197,6 +197,16 @@ class CupomUsuarioController extends BaseController
         {
             $model = model(CupomModel::class);
             $user_data = $model->where('cup_id', $this->request->getVar('id'))->first();
+            echo json_encode($user_data);
+        }
+    }
+
+    public function qrcodeBuildClient()
+    {
+        if($this->request->getVar('id'))
+        {
+            $model = model(RegistroUsuarioModel::class);
+            $user_data = $model->where('id', $this->request->getVar('id'))->first();
             echo json_encode($user_data);
         }
     }

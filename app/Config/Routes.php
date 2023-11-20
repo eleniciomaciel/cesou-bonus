@@ -163,6 +163,7 @@ $routes->group("user", ["filter" => "auth"], function ($routes) {
     $routes->post("save-scanner-qrcode", "CupomUsuarioController::index");
     $routes->get("lista_cupons_ativos", "CupomUsuarioController::listaCupons");
     $routes->get("qrcode_build", "CupomUsuarioController::qrcodeBuild");
+    $routes->get("qrcode_build_client", "CupomUsuarioController::qrcodeBuildClient");
    
 
     /**
@@ -226,6 +227,10 @@ $routes->group('leva_traz_panel', static function ($routes) {
 
 $routes->group('Caixa', static function ($routes) {
     $routes->get('/', 'Caixa\CaixaController::index');
+    $routes->get('bonus','Caixa\BonusController::index');
+
+    $routes->get('pontos','Caixa\PontosController::index');
+    
     $routes->get("cliente_view_dado", "Caixa\CaixaController::clientePontosList");
     $routes->post("desconta_ponto", "Caixa\CaixaController::clienteCompensaPontos");
 });
